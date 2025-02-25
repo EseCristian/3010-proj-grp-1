@@ -25,4 +25,13 @@ The following tools and software were discussed and agreed upon by the team
 - **curl**: Command-line tool for transfering data with URLs.
 - **SQLAlchemy**: SQL toolkit and ORM Library for Python.
 - **Requests**: HTTP library for python.
+
   
+## Connecting to the `project_db` Database
+To connect to the `project_db` database using the `webuser1` login, follow these steps:
+
+1. Open your terminal.
+2. Use the following command to connect to the `project_db` database:
+   ```bash
+   psql -h 192.168.56.30 -d project_db -U webuser1
+3. when prompted, Enter the password 'student'.
