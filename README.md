@@ -1,7 +1,7 @@
 # 3010-proj-grp-1
 
 ## Overview
-This project aims to create an ECU CS Dashboard utilizing PostgreSQL and Apache. The dashboard will provide a comprehensive and interactive view of various data related to the ECU Computer Science department. The backend of the application will be powered by PostgreSQL, ensuring robust and efficient data management. The frontend will be served using Apache, providing a reliable and scalable web server. The entire development and deployment process will be carried out in a Linux virtual machine running Ubuntu, ensuring a consistent and controlled environment.
+-This project aims to create an ECU CS Dashboard utilizing PostgreSQL and Apache. The dashboard will provide a comprehensive and interactive view of various data related to the ECU Computer Science department. The backend of the application will be powered by PostgreSQL, ensuring robust and efficient data management. The frontend will be served using Apache, providing a reliable and scalable web server. The entire development and deployment process will be carried out in a Linux virtual machine running Ubuntu, ensuring a consistent and controlled environment.
 
 ##Team Memebers 
 - Cristian Contreras Alvarado
