@@ -36,3 +36,10 @@ To connect to the `project_db` database using the `webuser1` login, follow these
    ```bash
    psql -h 192.168.56.30 -d project_db -U webuser1
 3. when prompted, Enter the password `student`.
+
+## accessing web page
+To connect to the web page, follow these steps:
+
+1. login to web vm
+2. open firefox browser
+3. search for `192.168.56.10/cgi-bin/py-connect-pgdb.py`
