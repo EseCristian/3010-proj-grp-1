@@ -24,17 +24,18 @@ class Faculty:
 	def html_row(self):
 		return (f"<tr>"
 			f"<td>{self.fid}</td"
-			f"<td>{self.honorific}</td"
-			f"<td>{self.first_name}</td"
-			f"<td>{self.middle_initial}</td"
-			f"<td>{self.last_name}</td"
-			f"<td>{self.email}</td"
-			f"<td>{self.phone}</td"
-			f"<td>{self.office}</td"
-			f"<td>{self.research_interests}</td"
-			f"<td>{self.rank}</td"
-			f"<td>{self.remarks}</td"
-			f"<td>{self.currently_employed}</td")
+			f"<td>{self.honorific}</td>"
+			f"<td>{self.first_name}</td>"
+			f"<td>{self.middle_initial}</td>"
+			f"<td>{self.last_name}</td>"
+			f"<td>{self.email}</td>"
+			f"<td>{self.phone}</td>"
+			f"<td>{self.office}</td>"
+			f"<td>{self.research_interests}</td>"
+			f"<td>{self.rank}</td>"
+			f"<td>{self.remarks}</td>"
+			f"<td>{self.currently_employed}</td>"
+		       f"</tr>")
 
 def html_faculty_output(faculty_list):
 	table_html = "<table>"
