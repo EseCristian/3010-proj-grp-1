@@ -25,7 +25,7 @@ The following tools and software were discussed and agreed upon by the team
 ## Project file locations
 - **Database dumpall and config file**: Located in `/Phase3/assignment/dbsrv/Team1_phase2_db_exports`
 - **Python faculty webpage**: Located in `/Phase3/assignment/websrv/webpages/py-connect-pgdb.py`
-- **Tar file**: Located in `/Phase3/assignment/Team1_phase2.tar`
+- **Tar file**: Located in `/Phase3/phase3.tar`
 
   
 ## Connecting to the `project_db` Database
