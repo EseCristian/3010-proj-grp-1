@@ -23,9 +23,9 @@ The following tools and software were discussed and agreed upon by the team
 - **OpenSSH**: Secure Shell for remote login.
 
 ## Project file locations
-- **Database dumpall and config file**: Located in `/assignment/dbsrv/Team1_phase2_db_exports`
-- **Python faculty webpage**: Located in `/assignment/websrv/webpages/py-connect-pgdb.py`
-- **Tar file**: Located in `/assignment/Team1_phase2.tar`
+- **Database dumpall and config file**: Located in `/Phase3/assignment/dbsrv/Team1_phase2_db_exports`
+- **Python faculty webpage**: Located in `/Phase3/assignment/websrv/webpages/py-connect-pgdb.py`
+- **Tar file**: Located in `/Phase3/assignment/Team1_phase2.tar`
 
   
 ## Connecting to the `project_db` Database
