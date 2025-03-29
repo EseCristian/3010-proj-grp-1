@@ -219,24 +219,7 @@ elif tab == "fte":
    
     print(html_fte_output(fte_list))
 
-#print("PGSQL version:<br>")
 
-#cursor.execute("SELECT version();")
-#version = cursor.fetchone()
-#print("Result ", version[0])
-#print("<br>All rows from table courses:<br>")
-
-#cursor.execute("SELECT * FROM courses;")
-#faculty_records = cursor.fetchall()
-#print("<table>")
-#print("<tr><th>prefix</th><th>number</th><th>title</th><th>gu</th><th>ch</th><th>frequency</th><th>active</th><th>description</th><th>remarks</th></tr>")
-
-#for row in faculty_records:
-#    print("<tr>")
-#    for column in row:
-#        print(f"<td>{column}</td>")
-#    print("</tr>")
-#print("</table>")
 
 
 cursor.close()
