@@ -65,18 +65,18 @@ def html_courses_output(courses_list):
     return table_html
 
 def calculate_fte(prefix, ch, enrollment, gu):
-    if prefix == "CSCI" and "G" in gu:
-        return (ch * enrollment) / 186.23
-    elif prefix == "CSCI" and "U" in gu:
-        return (ch * enrollment) / 406.24
-    elif prefix == "SENG" and "G" in gu:
-        return (ch * enrollment) / 90.17
-    elif prefix == "SENG" and "U" in gu:
-        return (ch * enrollment) / 232.25
-    elif prefix == "DASC":
-        return (ch * enrollment) / 186.23
-    else:
-        return 0  # Default for unrecognized prefixes
+	if prefix == "CSCI" and "G" in gu:
+		return (ch * enrollment) / 186.23
+	elif prefix == "CSCI" and "U" in gu:
+		return (ch * enrollment) / 406.24
+	elif prefix == "SENG" and "G" in gu:
+		return (ch * enrollment) / 90.17
+	elif prefix == "SENG" and "U" in gu:
+		return (ch * enrollment) / 232.25
+	elif prefix == "DASC":
+		return (ch * enrollment) / 186.23
+	else:
+		return 0  # Default for unrecognized prefixes
 
 def html_fte_output(fte_list):
     table_html = "<table>"
@@ -211,7 +211,7 @@ elif tab == "fte":
 				prefix = course[0]
 				enrollment = course[1] or 0
 				ch = course[2] or 0
-				gu = course[3] or ""
+				gu = (course[3] or "").strip().upper()
 
 
 				course_fte = calculate_fte(prefix, ch, enrollment, gu)
