@@ -37,7 +37,7 @@ To connect to the `project_db` database using the `webuser1` login, follow these
    psql -h 192.168.56.30 -d project_db -U webuser1
 3. when prompted, Enter the password `student`.
 
-## accessing web page
+## Accessing Web Page
 To connect to the web page, follow these steps:
 
 1. login to web vm
