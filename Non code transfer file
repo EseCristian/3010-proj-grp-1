@@ -1,0 +1,9 @@
+project_db=> SELECT DISTINCT gu FROM courses;
+ gu 
+----
+ 3
+ 0
+ 4
+(3 rows)
+
+
