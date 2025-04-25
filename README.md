@@ -21,21 +21,21 @@ The following tools and software were discussed and agreed upon by the team
 - **Apache**: Web server.
 - **CGI bin**: Common Gateway Interface for running scripts.
 - **OpenSSH**: Secure Shell for remote login.
+- **Docker**
 
 ## Project file locations in main vm
-- **Database dumpall and config file**: Located in `/3010-proj-grp-1/Phase3/assignment/dbsrv/`
-- **Python faculty webpage**: Located in `/3010-proj-grp-1/Phase3/assignment/websrv/webpages/py-connect-pgdb.py`
-- **Tar file**: Located in `/3010-proj-grp-1/Phase3/Team1_phase3.tar`
+- **Database dumpall and config file**: Located in `/3010-proj-grp-1/Phase4/`
+- **Python faculty webpage**: Located in `/3010-proj-grp-1/Phase4/py-connect-pgdb.py`
+- **Tar file**: Located in `/3010-proj-grp-1/Phase4/phase4.tar`
+- **Dockerfile**: Located in `/3010-proj-grp-1/Phase4/dockerfile`
 
   
-## Connecting to the `project_db` Database
-To connect to the `project_db` database using the `webuser1` login, follow these steps:
+## Connecting to the `my_custom_postgres` Container 
+The PostgreSQL container is set to **automatically start** when the Web VM is powered on.
 
-1. Open your terminal in the ubuntu-sql-vm.
-2. Use the following command to connect to the `project_db` database:
-   ```bash
-   psql -h 192.168.56.30 -d project_db -U webuser1
-3. when prompted, Enter the password `student`.
+1. Check if the container is `running sudo docker ps`
+2. Get inside the running container `sudo docker exec -it my_custom_postgres bash` When prompted, enter the password: `student` (if required)
+3. To open the project_db database using psql: `psql -d project_db` 
 
 ## Accessing Web Page
 To connect to the web page, follow these steps:
