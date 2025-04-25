@@ -76,7 +76,7 @@ def calculate_fte(prefix, ch, enrollment, gu):
 	elif prefix == "SENG":
 		if int_gu == 4:
 			return (ch * enrollment) / 90.17
-		elif gu == 3:
+		elif int_gu == 3:
 			return (ch * enrollment) / 232.25
 	elif prefix == "DASC":
 		return (ch * enrollment) / 186.23
