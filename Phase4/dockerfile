@@ -1,0 +1,50 @@
+FROM ubuntu:22.04
+ENV DEBIAN_FRONTEND=noninteractive
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=student
+ENV POSTGRES_DB=project_db
+
+RUN apt-get update && \
+    apt-get install -y locales && \
+    locale-gen en_US.UTF-8 && \
+    update-locale LANG=en_US.UTF-8
+RUN apt-get update && \
+    apt-get install -y postgresql postgresql-contrib && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY postgresql.conf /etc/postgresql/14/main/postgresql.conf
+COPY temp_dumpall.sql /tmp/temp_dumpall.sql
+RUN chown -R postgres:postgres /var/lib/postgresql /var/run/postgresql
+USER postgres
+    
+USER root 
+RUN sed -i 's/^local\s\+all\s\+all\s\+peer/local all all trust/' /etc/postgresql/14/main/pg_hba.conf
+RUN sed -i 's/^host\s\+all\s\+all\s\+127\.0\.0\.1\/32\s\+scram-sha-256/host all all 127.0.0.1\/32 md5/' /etc/postgresql/14/main/pg_hba.conf
+RUN echo "host all all 172.17.0.1/16 md5" >> /etc/postgresql/14/main/pg_hba.conf
+RUN echo "host all all 0.0.0.0/0 md5" >> /etc/postgresql/14/main/pg_hba.conf
+# Initialize database
+RUN echo "student" > /tmp/pwfile && chown postgres:postgres /tmp/pwfile
+
+USER postgres
+
+RUN /usr/lib/postgresql/14/bin/initdb \
+    -D /var/lib/postgresql/14/data \
+    --auth-local=md5 --auth-host=md5 \
+    --username=postgres \
+    --pwfile=/tmp/pwfile
+    
+# Preload the database by faking a postgres run with a temporary start
+RUN /usr/lib/postgresql/14/bin/pg_ctl -D /var/lib/postgresql/14/data -o "-c listen_addresses='' -c hba_file=/etc/postgresql/14/main/pg_hba.conf" -w start && \
+    psql -U postgres -d postgres -c "ALTER USER postgres WITH PASSWORD 'student';" && \
+    psql -U postgres -c "DROP DATABASE IF EXISTS project_db;" && \
+    psql -U postgres -c "CREATE DATABASE project_db;" && \
+    psql -U postgres -d project_db -f /tmp/temp_dumpall.sql && \   
+    /usr/lib/postgresql/14/bin/pg_ctl -D /var/lib/postgresql/14/data -m fast stop
+
+EXPOSE 5432
+
+
+CMD ["/usr/lib/postgresql/14/bin/postgres", "-D", "/var/lib/postgresql/14/data", "-c", "config_file=/etc/postgresql/14/main/postgresql.conf", "-c", "hba_file=/etc/postgresql/14/main/pg_hba.conf"]
+
+
