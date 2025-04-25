@@ -54,4 +54,8 @@ If the container is not working or you need to rebuild it after changes:
 4. If you need to set (or reset) the PostgreSQL postgres user password: `sudo docker exec -it my_custom_postgres bash` ➡️ `psql` ➡️ `ALTER USER postgres WITH PASSWORD 'student';` ➡️ `\q`
 5. Create the new database: `createdb project_db`
 6. Restore the database: `psql -d project_db < /tmp/temp_dumpall.sql`
+
+## conf files
+The postgresql.conf file is coped into the container from an existing one in the Phase4 folder 
+the pg_hba.conf file is altered through the dockerfile to make sure the connects are correct. 
   
